@@ -1,0 +1,375 @@
+@font-gray: #949094;
+@font-content: #606060;
+@font-black: #58595D;
+@blue-color: #2196f3;
+@button-color: #185550;
+@theme-color: #A9EEE6;
+@theme-color-second: #12C9B4;
+@border-style: 1px solid #279083;
+@border-color: #279083;
+@background: #ffffff;//#f5f5f5;
+@base-font-color: #000;
+@normal-color: rgba(169, 238, 230, 0.6);
+@warn-font-color: rgb(104, 8, 8);
+@warn-color: rgba(202, 23, 23, 0.2);
+@warn-color-sec: rgba(244, 11, 11, 0.5);
+@video-background: rgba(42, 42, 42, 0.7);
+@loading-background: rgba(255, 255, 255, 0);
+@none-background: rgba(255, 255, 255, 0);
+@stop-color: rgba(165, 165, 168, 0.3);
+@content-height: ~'calc(100vh - 20px - 20px - (100vh - 20px - 20px) * .10)';
+
+.loop-color(@n, @i: 1) when (@i <=@n) {
+  .theme-color-@{i} {
+    background-color: rgba(169, 238, 230, @i*20%)
+  }
+
+  .warn-color-@{i} {
+    background-color: rgba(244, 11, 11, @i*20%)
+  }
+
+  .loop-color(@n, (@i + 1))
+}
+
+.loop-color(10);
+
+//字体黑色  用于标题，正文
+.f-black {
+  color: @base-font-color;
+}
+
+//字体灰色  用于注释文字，说明文字,辅助文字
+.f-gray {
+  color: @font-gray;
+}
+
+.f-blue {
+  color: @blue-color
+}
+
+.fb {
+  font-weight: 600;
+}
+
+/*********************内外边距标准********************************************************/
+.p(@num) {
+  .pt@{num} {
+    padding-top:~"@{num}px";
+  }
+
+  .pb@{num} {
+    padding-bottom:~"@{num}px";
+  }
+
+  .pl@{num} {
+    padding-left:~"@{num}px";
+  }
+
+  .pr@{num} {
+    padding-right:~"@{num}px";
+  }
+
+  .p@{num} {
+    padding:~"@{num}px";
+  }
+}
+
+;
+
+.m(@num) {
+  .mt@{num} {
+    margin-top:~"@{num}px";
+  }
+
+  .mb@{num} {
+    margin-bottom:~"@{num}px";
+  }
+
+  .ml@{num} {
+    margin-left:~"@{num}px";
+  }
+
+  .mr@{num} {
+    margin-right:~"@{num}px";
+  }
+
+  .m@{num} {
+    margin:~"@{num}px";
+  }
+}
+
+;
+.p(0);
+.p(2);
+.p(4);
+.p(5);
+.p(8);
+.p(10);
+.p(15);
+.p(16);
+.p(20);
+.p(24);
+.p(32);
+.p(56);
+
+.m(0);
+.m(2);
+.m(4);
+.m(5);
+.m(8);
+.m(10);
+.m(15);
+.m(16);
+.m(20);
+.m(24);
+.m(32);
+.m(56);
+
+/***************************边框样式标准******************************************************************/
+.border-s {
+  border: @border-style
+}
+
+.border-l-s {
+  border-left: @border-style;
+}
+
+.border-r-s {
+  border-right: @border-style;
+}
+
+.border-t-s {
+  border-top: @border-style;
+}
+
+.border-b-s {
+  border-bottom: @border-style;
+}
+
+.border-r {
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+.border-0 {
+  border: 0px;
+}
+
+.border-l-0 {
+  border-left: 0px;
+}
+
+.border-r-0 {
+  border-right: 0px;
+}
+
+.border-t-0 {
+  border-top: 0px;
+}
+
+.border-b-0 {
+  border-bottom: 0px;
+}
+
+.border-b-shadow {
+  box-shadow: 0px 2px 2px 0px #efeff4;
+  .border-b-s;
+}
+
+/***************************定位样式缩写******************************************************/
+.pr {
+  position: relative;
+}
+
+.pf {
+  position: fixed;
+}
+
+.pa {
+  position: absolute;
+}
+
+.db {
+  display: block;
+}
+
+.dib {
+  display: inline-block;
+}
+
+.fix-top(@top: 0px) {
+  position: fixed;
+  top: @top;
+}
+
+.fix-bottom(@bottom: 0) {
+  position: fixed;
+  bottom: @bottom;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.tl {
+  text-align: left;
+}
+
+.tm {
+  text-align: center;
+}
+
+.tr {
+  text-align: right;
+}
+
+.none {
+  display: none;
+}
+
+/************************弹性盒模式相关****************************/
+.fb-dfb {
+  display: -moz-box;
+  /* Firefox */
+  display: -ms-flexbox;
+  /* IE10 */
+  display: -webkit-flex;
+  /* Chrome, WebKit */
+  display: -webkit-box;
+  /* Safari */
+}
+
+.fb-box-orient(@c) {
+  -moz-box-orient: @c;
+  -webkit-box-orient: @c;
+  box-orient: @c;
+}
+
+.fb-box-flex(@num) {
+  -moz-box-flex: @num;
+  /* Firefox */
+  -webkit-box-flex: @num;
+  /* Safari and Chrome */
+  -ms-flex: @num;
+  /* Internet Explorer 10 */
+  box-flex: @num;
+  flex-grow: 1;
+}
+
+//横向上排列
+.fb-box-pack(@c) {
+  -ms-flex-pack: @c;
+  -moz-box-pack: @c;
+  -webkit-box-pack: @c;
+  box-pack: @c;
+}
+
+//纵向上排列
+.fb-box-align(@c) {
+  -ms-flex-align: @c;
+  -moz-box-align: @c;
+  -webkit-box-align: @c;
+  box-align: @c;
+}
+
+.flex-box(@name, @orient, @align, @pack) {
+  .fb-@{name} {
+    .fb-dfb;
+    .fb-box-orient(@orient);
+    .fb-box-align(@align);
+    .fb-box-pack(@pack);
+  }
+}
+
+.flex-box(left, horizontal, center, start) !important;
+.flex-box(left-top, horizontal, start, start) !important;
+.flex-box(left-bottom, horizontal, end, start) !important;
+.flex-box(center, horizontal, center, center) !important;
+.flex-box(center-top, horizontal, start, center) !important;
+.flex-box(center-bottom, horizontal, end, center) !important;
+.flex-box(right, horizontal, center, end) !important;
+.flex-box(right-top, horizontal, start, end) !important;
+.flex-box(right-bottom, horizontal, end, end) !important;
+.flex-box(v-top, vertical, start, start) !important;
+.flex-box(v-center, vertical, center, center) !important;
+
+.w100 {
+  width: 100%;
+}
+
+.h100 {
+  height: 100%;
+}
+
+//换行
+.word-break {
+  .db;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+//单行溢出省略号
+.word-ellipsis {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+//清除浮动
+.clear-fix() {
+  &:after {
+    content: ".";
+    visibility: hidden;
+    height: 0px;
+    clear: both;
+    display: block;
+  }
+}
+
+.flex(@direction: row, @justify: flex-start, @align: center, @wrap: wrap) {
+  display: flex;
+  flex-direction: @direction;
+  justify-content: @justify;
+  align-items: @align;
+  flex-wrap: @wrap;
+}
+
+.br(@num) {
+  border-radius: @num;
+}
+
+.cursor-p {
+  cursor:pointer;
+}
+
+.shadow-base {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)
+}
+
+.shadow-light {
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1)
+}
+
+.always-show {
+  display: block !important;
+}
+
+.hidden-icon {
+    .pa;
+    z-index: 10;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 48px;
+    color: @theme-color-second;
+    cursor: pointer;
+    display: none;
+    &:hover {
+      color: @theme-color;
+    }
+}

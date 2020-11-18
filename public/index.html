@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link href="<%= BASE_URL %>videojs/video-js.min.css" rel="stylesheet">
+    <script type="text/javascript" src="<%= BASE_URL %>videojs/video.min.js"></script>
+    <script src="<%= BASE_URL %>videojs/videojs-flash.min.js"></script>
+
+    <!-- <script>
+        videojs.options.flash.swf = "https://cdn.bootcss.com/videojs-swf/5.4.1/video-js.swf";
+    </script> -->
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>安全生产大数据监测平台</title>
+    <style >
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            padding: 0px;
+            margin: 0px;
+            overflow: hidden;
+            background-size: 100% 100%;
+            font-size: 62.5%;
+        }
+        #loading-index {
+            background-color:#ffffff;
+            height:100vh;
+            width:100vw;
+            position:fixed;
+            z-index:1;
+            margin-top:0px;
+            top:0px;
+        }
+        #loading-center-index {
+            position:absolute;
+            left: 40%;
+            top: 35%;
+            height:240px;
+            width:240px;
+        }
+        .round-index {
+            border-radius:50% 50% 50% 50%;
+            /*从半角到圆弧*/
+            position:absolute;
+            border-top:3px solid #2aa198;
+            border-left:3px solid #2aa198;
+            /* border-top:3px solid #ffff00;
+            border-left:5px solid #53ac85; */
+            border-bottom:5px solid transparent;
+            border-right:5px solid transparent;
+            animation:animate 5s infinite;
+        }
+        .round-2-index {
+            border-radius:50% 50% 50% 50%;
+            /*从半角到圆弧*/
+            position:absolute;
+            border-top:3px solid #859900;
+            border-left:3px solid #859900;
+            /* border-top:3px solid #ffff00;
+            border-left:5px solid #53ac85; */
+            border-bottom:5px solid transparent;
+            border-right:5px solid transparent;
+            animation:animate 5s infinite;
+        }
+        .text-index {
+            position: absolute;
+            left: 50%;
+            bottom: 35%;
+            animation: opacity 2s ease 0s infinite alternate;
+            font: 14px/21px Monaco, sans-serif;
+            letter-spacing:2px
+        }
+        #round_one-index {
+            left:85px;
+            top:85px;
+            width:120px;
+            height:120px;
+        }
+        #round_two-index {
+            left:65px;
+            top:65px;
+            width:160px;
+            height:160px;
+            animation-delay:0.2s;
+        }
+        #round_three-index {
+            left:45px;
+            top:45px;
+            width:200px;
+            height:200px;
+            animation-delay:0.4s;
+        }
+        #round_four-index {
+            left:25px;
+            top:25px;
+            width:240px;
+            height:240px;
+            animation-delay:0.6s;
+        }
+        @keyframes animate {
+            50% {
+                transform:rotate(360deg) scale(0.8);
+            }
+        }
+        @keyframes opacity {
+            0% {
+                opacity:0
+            }
+            100% {
+                opacity:1
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <noscript>
+        <strong>We're sorry but exhibiton doesn't work properly without JavaScript enabled. Please enable it to
+            continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <div id="loading-index">
+        <div id="loading-center-index">
+            <div class="round-index" id="round_four-index"></div>
+            <div class="round-index" id="round_three-index"></div>
+            <div class="round-2-index" id="round_two-index"></div>
+            <div class="round-2-index" id="round_one-index"></div>
+            <div class="text-index">加载中...</div>
+        </div>
+    </div>
+    <!-- built files will be auto injected -->
+    <script type="text/javascript"
+        src="http://webapi.amap.com/maps?v=1.4.15&key=92d69dde4e1274a24c7e3ce91a5dd3b4&plugin=Map3D,AMap.DistrictLayer,AMap.Scale,AMap.ToolBar,AMap.MouseTool,AMap.circleEditor,AMap.PolyEditor,AMap.Icon,AMap.Circle,AMap.InfoWindow"></script>
+    <script src="//webapi.amap.com/ui/1.0/main.js"></script>
+    <script>
+        window.onload = function() {
+            document.querySelector('#loading-index').style.display = 'none'
+        }
+    </script>
+</body>
+
+</html>

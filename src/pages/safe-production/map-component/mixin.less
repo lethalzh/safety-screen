@@ -1,0 +1,145 @@
+@import (reference) "~@/assets/css/common.less";
+
+.info-window {
+    .pr;
+    z-index: 100;
+    &.normal {
+        .circle {
+            background: rgba(27, 255, 228, 0.2);
+            border: 1px solid @theme-color;
+            &::before {
+                background: @theme-color;
+            }
+        }
+        .info {
+            border: 1px solid @theme-color;
+            background: rgba(27, 255, 228, 0.5);
+            &::before {
+                background: @theme-color;
+            }
+        }
+    }
+    &.something-wrong {
+        .circle {
+            background: rgba(255,255,0, .5);
+            border: 1px solid @warn-color;
+            &::before {
+                background: @warn-color;
+            }
+        }
+        .info {
+            border: 1px solid @warn-color;
+            background: rgba(255,255,0, .5);
+            &::before {
+                background: @warn-color;
+
+            }
+        }
+    }
+    .circle {
+        .pr;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        border: 1px solid red;
+        background: rgba(237, 97, 78, 0.3);
+        animation: expand 1s linear;
+        &::before {
+            content: "";
+            .pa;
+            top: -50px;
+            left: 270px;
+            display: block;
+            height: 250px;
+            width: 1px;
+            background: red;
+            transform: rotate(60deg);
+        }
+    }
+    .info {
+        border: 1px solid red;
+        background: rgba(237, 97, 78, 0.3);
+        width: 300px;
+        min-height: 120px;
+        pointer-events: all;
+        .flex(column, center, flex-start);
+        .p10;
+        .pa;
+        right: -394px;
+        top: -107px;
+        color: @base-font-color;
+        animation: rec 1s linear;
+        > div {
+            width: 100%;
+            &:nth-child(2n) {
+                .mt10;
+                .mb10;
+            }
+            &:nth-child(2) {
+                .flex(row, space-between);
+            }
+        }
+        span {
+            .word-ellipsis;
+        }
+        &::before {
+            content: "";
+            .pa;
+            top: 0;
+            left: -16px;
+            display: block;
+            height: 120px;
+            width: 1px;
+            background: red;
+            animation: rec 1s linear;
+        }
+        .camera-list {
+            .pt10;
+            height: 10vh;
+            overflow-y: auto;
+            &::-webkit-scrollbar {
+                /*滚动条整体样式*/
+                width: 5px; /*高宽分别对应横竖滚动条的尺寸*/
+                height: 1px;
+                opacity: 0.5;
+            }
+            &::-webkit-scrollbar-thumb {
+                /*滚动条里面小方块*/
+                border-radius: 10px;
+                background-color: #235954;
+            }
+            &::-webkit-scrollbar-track {
+                /*滚动条里面轨道*/
+                background: rgba(42, 42, 42, 0.9);
+                border-radius: 10px;
+            }
+            img {
+                border-radius: 5px;
+                margin-right: 20px;
+                .mb10;
+                width: ~"calc(50% - 20px)";
+            }
+        }
+        .cheader {
+            .pt10;
+            .pb10;
+            border-bottom: 1px solid @theme-color;
+        }
+    }
+}
+@keyframes expand {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+@keyframes rec {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
